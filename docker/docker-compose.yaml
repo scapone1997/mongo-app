@@ -3,7 +3,7 @@ name: mongo
 services:
   mongodb-classic:
     image: mongo:7.0.17
-    container_name: my-mongodb
+    container_name: mongo-normale
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
