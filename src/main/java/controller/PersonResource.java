@@ -1,6 +1,12 @@
+package controller;
 
+
+import entity.Person;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import service.PersonService;
+
 import java.util.List;
 
 @Path("/people")
@@ -8,13 +14,16 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PersonResource {
 
+    @Inject
+    PersonService personService;
+
     @GET
     public List<Person> list() {
-        return Person.listAll();
+        return personService.getAll();
     }
 
     @POST
     public void add(Person person) {
-        person.persist();
+        personService.create(person);
     }
 }
